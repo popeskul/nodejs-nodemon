@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <%- include('partials/head.ejs', { title: 'pages' }) %>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div class="container-fluid">
+      <div class="card mb-3">
+        <div class="card-body">
+          <p class="card-text"><%= pages[activePage] %></p>
+        </div>
+      </div>
+
+      <% if (pages.length) { %>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <% pages.forEach(function(page, index) { %>
+          <li
+            class="page-item <%= index === Number(activePage - 1) ? 'active' : '' %>"
+          >
+            <a class="page-link" href="?page=<%= index + 1 %>"
+              ><%= index + 1 %></a
+            >
+          </li>
+          <% }); %>
+        </ul>
+      </nav>
+      <%} %>
+    </div>
+
+    <%- include('partials/footer') %>
   </body>
 </html>

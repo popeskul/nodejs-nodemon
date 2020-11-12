@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('partials/head.ejs', { title: 'Dog' }) %>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="mt-3 mb-3 text-center">
+        <% if (image) { %>
+        <img
+          src="<%= image %>"
+          class="rounded mx-auto d-block dog-image mb-3"
+          alt="Responsive image"
+        />
+        <%} else { %>
+        <h5 class="mb-3">Loading...</h5>
+        <%} %>
+
+        <p class="mb-3">
+          <a href="/dogs/random" class="btn btn-primary">Get random dog</a>
+        </p>
+      </div>
+    </div>
+
+    <%- include('partials/footer') %>
+  </body>
+</html>
