@@ -8,5 +8,10 @@ a {
 }
 
 .dog-image {
-  height: 200px;
+  position: fixed;
+  top: 50%;
+  transform: translate(0%, -50%);
+  max-width: 40%;
+  width: 100%;
+  max-height: 90%;
 }

@@ -3,7 +3,7 @@ const model = require('../mock/model');
 const router = express.Router();
 
 router.get('/', function (req, res, next) {
-  const indexPage = req.query.page || 0;
+  const indexPage = req.query.page || 1;
 
   res.render('index', {
     activePage: indexPage,
