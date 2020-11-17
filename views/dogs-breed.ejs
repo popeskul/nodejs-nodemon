@@ -15,15 +15,11 @@
             />
           </div>
           <div class="col-6">
-            <ul class="list-group">
+            <select class="select-dog">
               <% list.forEach(function(option){ %>
-              <li class="list-group-item">
-                <a href="/dogs/breed/<%= option.value %>" class="d-block">
-                  <%= option.name %>
-                </a>
-              </li>
+              <option value="<%= option %>"><%= option %></option>
               <% }); %>
-            </ul>
+            </select>
           </div>
         </div>
       </div>

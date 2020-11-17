@@ -28,16 +28,7 @@ router.get('/breed/:breedId/:subBreedId?', function (req, res, next) {
   results.pipe(catchError((error) => throwError('Bad url', error.config.url)));
   results.subscribe(
     ({ breed, breedList }) => {
-      const list = [];
-      for (const key in breedList.data.message) {
-        if (breedList.data.message[key].length) {
-          breedList.data.message[key].forEach((el) => {
-            list.push({ name: `${el} ${key}`, value: `${key}/${el}` });
-          });
-        } else {
-          list.push({ name: key, value: key });
-        }
-      }
+      const list = Object.keys(breedList.data.message);
       res.render('dogs-breed', {
         image: breed.data.message,
         list
